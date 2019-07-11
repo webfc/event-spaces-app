@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ExemploLogCore.ExtensionLogger;
+﻿using ExemploLogCore.ExtensionLogger;
 using Ideas.Eventos.Hoteis.Core.Interfaces;
 using Ideas.Eventos.Hoteis.Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using System.IO.Compression;
 
 namespace Ideas.Eventos.Hoteis.Api
 {
@@ -37,8 +33,13 @@ namespace Ideas.Eventos.Hoteis.Api
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.Configure<GzipCompressionProviderOptions>(
+                options => options.Level = CompressionLevel.Optimal);
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +57,7 @@ namespace Ideas.Eventos.Hoteis.Api
             {
                 app.UseHsts();
             }
-
+            app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

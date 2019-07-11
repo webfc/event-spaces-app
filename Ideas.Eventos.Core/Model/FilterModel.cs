@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-
-namespace Ideas.Eventos.Hoteis.Core.Model
+﻿namespace Ideas.Eventos.Hoteis.Core.Model
 {
     public class FilterModel
     {

@@ -1,8 +1,5 @@
 ﻿using Ideas.Eventos.Hoteis.Core.Model;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ideas.Eventos.Hoteis.Core.Repository
 {

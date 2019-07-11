@@ -1,8 +1,6 @@
 ﻿using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
 using System.Security.Authentication;
-using System.Text;
 
 namespace Ideas.Eventos.Hoteis.Core.Repository
 {
