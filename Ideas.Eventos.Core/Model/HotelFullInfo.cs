@@ -86,6 +86,8 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public string listingText { get; set; }
             public string venueDescription { get; set; }
             public string venueDescriptionTitle { get; set; }
+            public string portugueseDescription { get; set; }
+            public string spanishDescription { get; set; }
             public string offeringStatus { get; set; }
             public int listTypeId { get; set; }
             public double largestMeetingRoom { get; set; }
