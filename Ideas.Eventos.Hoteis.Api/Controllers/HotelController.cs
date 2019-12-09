@@ -18,7 +18,7 @@ namespace Ideas.Eventos.Hoteis.Api.Controllers
         }
 
         [HttpPost("list-accor")]
-        public ActionResult GetBasicInfoListAccor( [FromBody]FilterModel filter)
+        public ActionResult GetBasicInfoListAccor([FromBody]FilterModel filter)
         {
             if (string.IsNullOrEmpty(filter.Country) || filter.Limit == 0)
                 return BadRequest();
@@ -37,6 +37,17 @@ namespace Ideas.Eventos.Hoteis.Api.Controllers
             return Ok(list);
         }
 
+        [HttpPost("full-info-list")]
+        public ActionResult GetFullInfoList([FromBody]FilterModel filter)
+        {
+            if (string.IsNullOrEmpty(filter.Country) || filter.Limit == 0)
+                return BadRequest();
+
+            FullInfoRepository repository = new FullInfoRepository();
+            var list = repository.GetHoteis(filter);
+            return Ok(list);
+        }
+
         [HttpGet("details/{id}/{pais}")]
         public ActionResult<string> GetFullInfo(string id, string pais)
         {
@@ -49,5 +60,22 @@ namespace Ideas.Eventos.Hoteis.Api.Controllers
             return Ok(hotel);
         }
 
+        /* CRUD HOTEIS */
+
+        [HttpPut("update/{id}/{country}")]
+        public ActionResult<string> UpdateHotelFullInfo([FromBody] HotelFullInfo hotel, [FromRoute] string country, [FromRoute] string id)
+        {
+            FullInfoRepository repository = new FullInfoRepository();
+            repository.UpdateHotel(id, country, hotel); 
+            return Ok(hotel);
+        }
+
+        [HttpDelete("remove/{id}/{country}")]
+        public ActionResult<string> RemoveHotelFullInfo([FromRoute] string country, [FromRoute] string id)
+        {
+            FullInfoRepository repository = new FullInfoRepository();
+            repository.RemoveHotel(id, country);
+            return Ok();
+        }
     }
 }

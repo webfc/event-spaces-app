@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace Ideas.Eventos.Hoteis.Core.Model
@@ -53,6 +54,8 @@ namespace Ideas.Eventos.Hoteis.Core.Model
         public bool displayHeroImage { get; set; }
         public bool needDateFlag { get; set; }
         public bool promotionsAllowed { get; set; }
+        public bool IsUpdated { get; set; }
+        public DateTime DateDeleted { get; set; }
     }
 
     public class AirportDistance

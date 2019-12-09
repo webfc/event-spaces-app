@@ -40,8 +40,9 @@ namespace Ideas.Eventos.Hoteis.Core.Repository
             if (filter.Guests != 0)
                 filters = filters & builder.Gt(x => x.totalSleepingRoom, filter.Guests / 2);
             if (filter.MetricValue != 0)
-                filters = filters & builder.Gt(x => x.largestMeetingSpace.metricValue, filter.MetricValue);
-            
+                filters = filters & builder.Gt(x => x.largestMeetingSpace.metricValue, filter.MetricValue);            
+
+            filters = filters & builder.Where(x => x.DateDeleted == null); 
             return filters;
         }
     }

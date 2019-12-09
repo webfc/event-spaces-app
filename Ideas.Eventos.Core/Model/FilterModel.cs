@@ -35,4 +35,10 @@
         //}
 
     }
+
+    public class JobFilterModel
+    {
+        public string Local { get; set; }
+        public string Time { get; set; }            
+    }
 }

@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.1.1" />
@@ -21,10 +23,16 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="Swashbuckle" Version="5.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ideas.Eventos.Core\Ideas.Eventos.Hoteis.Core.csproj" />
+    <ProjectReference Include="..\Ideas.Eventos.Hoteis.Crawler\Ideas.Eventos.Hoteis.Crawler.csproj" />
+    <ProjectReference Include="..\Ideas.Eventos.Hoteis.Jobs\Ideas.Eventos.Hoteis.Jobs.csproj" />
+    <ProjectReference Include="..\Ideas.Eventos.Hoteis.Upload\Ideas.Eventos.Hoteis.Upload.csproj" />
   </ItemGroup>
 
 </Project>

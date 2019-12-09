@@ -1,10 +1,11 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Ideas.Eventos.Hoteis.Core.Model
+namespace Ideas.Eventos.Hoteis.Crawler.Model
 {
-    public class HotelFullInfo
+    public class Hotel
     {
         [BsonId]
         public string ofrgId { get; set; }
@@ -25,9 +26,7 @@ namespace Ideas.Eventos.Hoteis.Core.Model
         public string eventInsurance { get; set; }
         public RestaurantInformation restaurantInformation { get; set; }
         public List<NeedDate> needDates { get; set; }
-        public bool IsUpdate { get; set; }
         public bool IsUpdated { get; set; }
-
         public DateTime DateDeleted { get; set; }
         public class OfrgImage
         {
@@ -88,9 +87,9 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public string metroAreaName { get; set; }
             public string listingText { get; set; }
             public string venueDescription { get; set; }
-            public string venueDescriptionTitle { get; set; }
             public string portugueseDescription { get; set; }
             public string spanishDescription { get; set; }
+            public string venueDescriptionTitle { get; set; }
             public string offeringStatus { get; set; }
             public int listTypeId { get; set; }
             public double largestMeetingRoom { get; set; }
@@ -118,11 +117,11 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public double metricValue { get; set; }
         }
 
+        [BsonIgnoreExtraElements]
         public class Highlights
         {
             public string chainName { get; set; }
             public string brandName { get; set; }
-            public List<object> affiliations { get; set; }
             public int totalSleepingRoom { get; set; }
             public int totalMeetingRoom { get; set; }
             public string openingDate { get; set; }
@@ -251,8 +250,8 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public int selectionWidth { get; set; }
             public int selectionHeight { get; set; }
             public int selectionTopLeftX { get; set; }
-            public bool IsUpdated { get; set; }
             public int selectionTopLeftY { get; set; }
+            public bool IsUpdated { get; set; }
         }
 
         public class RoomDetail
@@ -345,12 +344,12 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public string endDate { get; set; }
         }
 
+        [BsonIgnoreExtraElements]
         public class PromotionDetails
         {
             public string description { get; set; }
             public string additionalInformation { get; set; }
             public List<string> daysOfWeek { get; set; }
-            public List<object> attachments { get; set; }
         }
 
         public class Promotion
@@ -405,10 +404,11 @@ namespace Ideas.Eventos.Hoteis.Core.Model
             public bool isVenueDefault { get; set; }
         }
 
+        [BsonIgnoreExtraElements]
         public class RestaurantInformation
         {
             public string executiveChef { get; set; }
-            public List<object> operatingHours { get; set; }
         }
+
     }
 }

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ideas.Eventos.Hoteis.Crawler\Ideas.Eventos.Hoteis.Crawler.csproj" />
+    <ProjectReference Include="..\Ideas.Eventos.Hoteis.Upload\Ideas.Eventos.Hoteis.Upload.csproj" />
+  </ItemGroup>
+
+</Project>
